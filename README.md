@@ -13,9 +13,9 @@ admin-password
 ## Explore
 Complete the following steps to learn about this applications abilities:
 
-[ ] Register as a new User  
-[ ] Log in as your new user  
-[ ] Create 3 new messages  
+[] Register as a new User  
+[] Log in as your new user  
+[] Create 3 new messages  
 [ ] Log out  
 [ ] Try to create a new message  
 [ ] Log in as an Admin  
