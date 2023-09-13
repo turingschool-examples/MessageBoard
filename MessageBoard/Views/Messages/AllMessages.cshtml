@@ -1,0 +1,37 @@
+﻿@model IDictionary<string, List<Message>>
+
+<h2>Active Messages</h2>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Content</th>
+            <th scope="col">Expiration Date</th>
+        </tr>
+    </thead>
+    @foreach (var message in Model["active"])
+    {
+        <tr>
+            <td>@message.Content</td>
+            <td>@message.ExpirationDate.ToShortDateString()</td>
+        </tr>
+    }
+</table>
+
+<h2>Expired Messages</h2>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Content</th>
+            <th scope="col">Expiration Date</th>
+        </tr>
+    </thead>
+    @foreach (var message in Model["expired"])
+    {
+        <tr>
+            <td>@message.Content</td>
+            <td>@message.ExpirationDate.ToShortDateString()</td>
+        </tr>
+    }
+</table>

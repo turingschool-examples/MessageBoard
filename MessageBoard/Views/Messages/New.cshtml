@@ -1,0 +1,14 @@
+﻿@model User
+
+<form method="post" action="/messages/create">
+    <input type="hidden" name="UserId" value="@Model.Id"/>
+    <div>
+        <label for="Content">Content</label>
+        <input type="text" name="Content" />
+    </div>
+    <div>
+        <label for="ExpiresIn">Exires in (num days)</label>
+        <input type="number" name="ExpiresIn"/>
+    </div>
+    <button type="submit">Create</button>
+</form>
