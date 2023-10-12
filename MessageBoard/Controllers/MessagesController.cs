@@ -2,6 +2,7 @@
 using MessageBoard.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.EntityFrameworkCore;
 
 namespace MessageBoard.Controllers
 {
@@ -29,6 +30,7 @@ namespace MessageBoard.Controllers
         public IActionResult Index()
         {
             var messages = _context.Messages
+                .Include(m => m.Author)
                 .OrderBy(m => m.ExpirationDate)
                 .ToList()
                 .Where(m => m.IsActive()); // LINQ Where(), not EF Where()
@@ -48,7 +50,7 @@ namespace MessageBoard.Controllers
                 { "expired", new List<Message>() }
             };
 
-            foreach (var message in _context.Messages)
+            foreach (var message in _context.Messages.Include(m => m.Author))
             {
                 if (message.IsActive())
                 {

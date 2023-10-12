@@ -12,6 +12,7 @@
         <tr>
             <th scope="col">Content</th>
             <th scope="col">Expiration Date</th>
+            <th scope="col">Created By</th>
         </tr>
     </thead>
     @foreach (var message in Model)
@@ -19,6 +20,7 @@
         <tr>
             <td>@message.Content</td>
             <td>@message.ExpirationDate.ToShortDateString()</td>
+            <td>@message.Author.Email</td>
         </tr>
     }
 </table>
